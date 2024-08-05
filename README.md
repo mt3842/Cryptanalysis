@@ -2,7 +2,7 @@
 
 ## Overview
 
-This project walks through the process of solving a basic cryptanalysis problem. The encrypted cryptogram is provided along with the clue that there are two keywords used to transpose the message. Using this infomration, we will attempt to break the cryptogram using various methods.
+This project walks through the process of solving a basic cryptanalysis problem. The encrypted cryptogram is provided along with the clue that there are two keywords used to transpose the message. Using this information, we will attempt to break the cryptogram using various methods.
 
 ## Index of Coincidence
 
@@ -14,42 +14,60 @@ IMAGE
 
 We test for different frequencies of letter length, namely 4, 5, and 6 letter lengths. We are computing the IC for the first letter of the word, and testing the length of the word.
 
+
+
 Freq for 4 letters: 0.044564890093345376
+
 Freq for 5 letters: 0.07132867132867132
+
 Freq for 6 letters: 0.04713804713804714
+
 
 The frequency for the first letter as every 5 letters is high, thus we assume that the length of the word is 5 and we look at each letter:
 
+
 freq5First: 0.07132867132867132
+
 freq5Second: 0.057692307692307696
+
 freq5Third: 0.06634615384615385
+
 freq5Fourth: 0.09903846153846153
+
 freq5Fifth: 0.058173076923076925
+
 Average per letter = 0.07051573426573426
 
+
 The average letter frequency meets our threshold of 0.07, thus it seems likely that the length of one of the codewords is five letters. We will refer to this as the second keyword, since it is used after the first keyword transposes the plain text. 
+
 
 ## Cracking the Second Keyword
 
 We know that the second keyword is five letters, so we look st the frequency of each of the 5 letters.
 
 A B C D E F G H I J K L M N  O P Q R S T U V W X Y Z		First Letters
+
 0 5 3 0 7 0 3 2 0 3 1 6 1 4 12 2 0 1 1 0 0 3 3 3 0 6 		(frequency of letter)
 
 
 A B C D E F G H I J K L M N O P Q R S T U V W X Y Z		Second Letters
+
 0 3 2 5 0 5 0 4 2 0 6 2 3 1 0 0 6 8 2 6 5 1 0 2 1 1 
 
 
 A B C D E F G H I J K L M N O P Q R S T U V W  X Y Z		Third Letters
+
 5 2 0 2 2 7 3 0 8 0 1 2 1 3 0 3 1 2 2 2 6 0 3 10 0 0 
 
 
 A B C D E F G H I J K L M N O P Q R S T U V W  X Y Z		Fourth Letters
+
 2 0 0 1 3 0 3 0 4 0 8 0 0 4 1 5 2 1 1 2 4 0 7 16 1 0 
 
 
 A B C D E F G H I J K L M N O P Q R S T U V W X Y Z		Fifth Letters
+
 7 3 1 2 2 0 0 5 1 4 0 5 0 7 3 0 8 0 4 0 2 2 3 3 0 3 
 
 
@@ -64,6 +82,7 @@ IUSJWKGUWJZGWZEQJUZQJCBUQWZRJEUIDJSWIZPKSGDGWZBUQZRJQJBUGNZRJFGMMJXJGNJUXIUJJSIU
 ## Cracking the First Keyword
 
 Now with the single-coded alphabet, we can begin to convert the coded text (labeled code or c) into plain text (labeled plain or p). We will do this using analysis of the English language and find patterns that appear in the code. We look at the frequency of three consecutive letters:
+
 
 
 A: BG,BM,PS 
@@ -121,7 +140,10 @@ Y: GB,
 Z: BI,BI,CR,EJ,EZ,IJ,IP,JG,JR,JR,NR,QG,QR,RR,UQ,UW,WB,WB,WE,WE,WG,WI,WR,WR,WS,WS,WW,ZR
 
 
+
 We note that the frequent trigraphs: ZRJ, BUQ, JWZ. We further look at letter frequencies:
+
+
 
 Letter Frequency Table
 
@@ -191,65 +213,70 @@ Top letter = code text, bottom letter = plain text
 IMAGE
 
 
-Ncol 6 has E as the very last letter, thus it is not possible.
+- Ncol 6 has E as the very last letter, thus it is not possible.
 
-Ncol 8 has T near the end of the alphabet, meaning the keyword has four of the remaining six letters: UVWXYZ. This is not very likely, thus we assume that the keyword is in Ncol = 7.
+- Ncol 8 has T near the end of the alphabet, meaning the keyword has four of the remaining six letters: UVWXYZ. This is not very likely, thus we assume that the keyword is in Ncol = 7.
 
-We notice that in the coded alphabet, T and V have 0 frequency, while L, O, Y have 1 frequency, and A, H, P have 3 frequency. We can create potential matchings with plain letters J, Q, X, Z.
+- We notice that in the coded alphabet, T and V have 0 frequency, while L, O, Y have 1 frequency, and A, H, P have 3 frequency. We can create potential matchings with plain letters J, Q, X, Z.
 
-We can assume that T (c) = Z (p)
+- We can assume that T (c) = Z (p)
 
-Using that, we can assume that L (c) = X (p) and P (c) = Y (p)
+- Using that, we can assume that L (c) = X (p) and P (c) = Y (p)
 
-We can also pair V (c) = J (p), meaning that I (p) is in the first keyword.
+- We can also pair V (c) = J (p), meaning that I (p) is in the first keyword.
 
-If we assume that O (c) = Q (p), then it means S and W (c) correspond to R and S (p)
+- If we assume that O (c) = Q (p), then it means S and W (c) correspond to R and S (p)
 
-Other frequent code letters: G, J, U, W, Z.
+- Other frequent code letters: G, J, U, W, Z.
 
-D (c) contains trigraph JDJ ,and since J = E(p) then it means D is a consonant. It also can only be U, V, or W, and positionally it can only be U or V. Thus it is V (p) and H (c) is W (p). 
+- D (c) contains trigraph JDJ ,and since J = E(p) then it means D is a consonant. It also can only be U, V, or W, and positionally it can only be U or V. Thus it is V (p) and H (c) is W (p). 
 
-This also means that U (p) is in the keyword.
+- This also means that U (p) is in the keyword.
 
-In code, B has trigraph RD, which translates to H_V. Also, B can only be A,B,C,D (p). It makes sense that B (c) = A (p).
+- In code, B has trigraph RD, which translates to H_V. Also, B can only be A,B,C,D (p). It makes sense that B (c) = A (p).
 
-Y (c) has 1 frequency, making it likely to be K (p).
+- Y (c) has 1 frequency, making it likely to be K (p).
 
-Plugging it what is decoded so far, we find certain keywords like:
+- Plugging it what is decoded so far, we find certain keywords like:
 
-EUIVERSITY
 
-This implies that E and U (c) are U and N (p) respectively.
+    EUIVERSITY
 
-STUQENT
+    - This implies that E and U (c) are U and N (p) respectively.
 
-Implies that Q (c) = D (p)
+    STUQENT
 
-ENXINEER
+    - Implies that Q (c) = D (p)
 
-Implies that X (c) = G (p)
+    ENXINEER
 
-Meaning N (c) = F (p)
+    - Implies that X (c) = G (p)
 
-EXFITED
+    - Meaning N (c) = F (p)
 
-Implies that F (c) = C (p)
+    EXFITED
 
-AAGUT
+    - Implies that F (c) = C (p)
 
-Implies that A (c) = B (p), G (c) = O (p)
+    AAGUT
 
-Meaning K (c) = P (p)
+    - Implies that A (c) = B (p), G (c) = O (p)
 
-DECANDS
+    - Meaning K (c) = P (p)
 
-Implies that C (c) = M (p)
+    DECANDS
 
-The remaining letters are I,M (c) = I,L (p)
+    - Implies that C (c) = M (p)
 
-Since I (c) has almost double the frequency of M (c), we can infer that 
+- The remaining letters are I,M (c) = I,L (p)
 
-I (c) = I (p) and that M (c) = L (p)
+- Since I (c) has almost double the frequency of M (c), we can infer that 
+
+- I (c) = I (p) and that M (c) = L (p)
+
+
+## Decoding the Cryptogram
+
 
 
 
