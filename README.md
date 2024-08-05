@@ -57,8 +57,202 @@ Through a rough visual analysis, we can align the five alphabets to find the cod
 
 Using this information, we can convert the code into a single alphabet, where each letter corresponds to the alphabet for each letter. For example, the first letter is the code letter N, which corresponds to the keyword letter F. When we "shift" F back to A, we also shift N back to the letter I to give us the first letter of the single alphabet. Repeating this process in cycles of 5 give us the new collapsed alphabet:
 
-New Single Alphabet:
+New Single-coded Alphabet:
 IUSJWKGUWJZGWZEQJUZQJCBUQWZRJEUIDJSWIZPKSGDGWZBUQZRJQJBUGNZRJFGMMJXJGNJUXIUJJSIUXBUQBKKMIJQWFIJUFJWBXSJJQZGJWZBAMIWRZRJUJHFGMMJXJGNFGCKEZJSBUQIUNGSCBZIGUWFIJUFJWZRJSJOEJWZWNSGCZRJIUQEWZSIJWGUMGUXIWMBUQNGSWEFRBFGMMJXJXBDJZRJWZGUPASGGYBQCIUIWZSBZIGUUGFRGIFJBUQWZEQJUZWBSJDJSPJLFIZJQBAGEZZRJKSJWZIXJZRJISFGCKWFIQJXSJJWHIMMUGHRBDJ
+
+
+## Cracking the First Keyword
+
+Now with the single-coded alphabet, we can begin to convert the coded text (labeled code or c) into plain text (labeled plain or p). We will do this using analysis of the English language and find patterns that appear in the code. We look at the frequency of three consecutive letters:
+
+
+A: BG,BM,PS 
+
+B: CU,CZ,JU,JU,MU,QA,QK,RD,RF,SU,SZ,WS,WX,XD,XU,YQ,ZA,ZU 
+
+C: GK,GK,GZ,JB,QI,SB 
+
+D: BJ,BJ,GG,IJ,JJ 
+
+E: GZ,JU,KZ,OJ,QW,WF,ZQ,ZQ
+
+F: BG,ER,GR,HG,IJ,JG,LI,NG,SG,UJ,UJ,WI,WI,WI
+
+G: AE,DW,FC,FC,FM,FM,FM,GY,IU,IU,JN,JN,KU,MU,NS,NS,RI,SC,SD,SG,UF,UH,UN,WU,ZJ,ZU,ZW 
+
+H: GR, JF, WI, 
+
+I: .U,CU,FJ,FJ,FQ,FZ,GF,HM,JS,JU,MJ,MW,QU,SJ,SU,UD,UW,WZ,XU,XW,ZG,ZG,ZX
+
+J: D.,DS,DS,DZ,EW,FB,FW,FW,GW,IQ,IU,IU,IW,JQ,JS,JW,MX,MX,MX,NU,PL,QB,QC,QU,QU,QX,RE,RF,
+
+RI,RI,RK,RQ,RS,RU,RW,SD,SJ,SJ,SO,SW,SW,UH,UJ,WZ,XG,XG,XX,XZ,ZQ,ZS 
+
+K: BK,CE,CW,JS,KM,PS,WG
+
+L: JF, 
+
+M: AI,GM,GM,GM,IM,KI,MJ,MJ,MJ,MU,UG,WB
+
+N: GF,GJ,GZ,QG,UG,WS
+
+O: JE, 
+
+P: SJ,UA,ZK
+
+Q: BC,EJ,EJ,IJ,JB,JJ,JW,JZ,UB,UE,UI,UN,UW,UW,UZ,ZJ
+
+R: FB,FG,HB,WZ,ZJ,ZJ,ZJ,ZJ,ZJ,ZJ,ZJ,ZJ,ZJ 
+
+S: AG,BJ,GC,GW,IF,JB,JI,JJ,JP,JW,KG,KJ,NG,UJ,XJ,XJ,ZB,ZI
+
+T: 
+
+U: BG,BQ,BQ,BQ,BQ,BQ,BQ,EI,GM,GP,GU,GW,GW,GX,II,IJ,IN,IQ,IS,IX,JF,JF,JJ,JX,JZ,JZ,MG,UG
+
+V: 
+
+W: EZ,GZ,GZ,IM,IR,IZ,JB,JG,JH,JK,JZ,JZ,JZ,JZ,JZ,KF,QF,QZ,QZ,SE,SI,UF,UJ,ZB,ZN
+
+X: BS,IJ,JB,JJ,JJ,JJ,JS,UB,UI,UI
+
+Y: GB, 
+
+Z: BI,BI,CR,EJ,EZ,IJ,IP,JG,JR,JR,NR,QG,QR,RR,UQ,UW,WB,WB,WE,WE,WG,WI,WR,WR,WS,WS,WW,ZR
+
+
+We note that the frequent trigraphs: ZRJ, BUQ, JWZ. We further look at letter frequencies:
+
+Letter Frequency Table
+
+A: 3
+
+B: 18
+
+C: 6
+
+D: 5
+
+E: 8
+
+F: 14
+
+G: 27
+
+H: 3
+
+I: 23
+
+J: 50
+
+K: 7
+
+L: 1
+
+M: 12
+
+N: 6
+
+O: 1
+
+P: 3
+
+Q: 16
+
+R: 13
+
+S: 18
+
+T: 0
+
+U: 28
+
+V: 0
+
+W: 25
+
+X: 10
+
+Y: 1
+
+Z: 28
+
+
+Given the frequency of each letter, it is safe to assume that BUQ (code) is not THE (plain), as E (p) is the most common letter while Q (c) is not. Thus it is either: ZRJ, JWZ. Both J and Z (c) can be E (p), since they are very common. Given that J (c) is the most common letter by a large margin, we will look at the case ZRJ (c) = THE (p)
+
+
+We now create arrays to figure out the length of the first keyword. A keyword is used to The length of the keyword determines the number of columns of the array, and we can use that 
+
+Keyword Transpose Arrays:
+
+Top letter = code text, bottom letter = plain text
+
+
+IMAGE
+
+
+Ncol 6 has E as the very last letter, thus it is not possible.
+
+Ncol 8 has T near the end of the alphabet, meaning the keyword has four of the remaining six letters: UVWXYZ. This is not very likely, thus we assume that the keyword is in Ncol = 7.
+
+We notice that in the coded alphabet, T and V have 0 frequency, while L, O, Y have 1 frequency, and A, H, P have 3 frequency. We can create potential matchings with plain letters J, Q, X, Z.
+
+We can assume that T (c) = Z (p)
+
+Using that, we can assume that L (c) = X (p) and P (c) = Y (p)
+
+We can also pair V (c) = J (p), meaning that I (p) is in the first keyword.
+
+If we assume that O (c) = Q (p), then it means S and W (c) correspond to R and S (p)
+
+Other frequent code letters: G, J, U, W, Z.
+
+D (c) contains trigraph JDJ ,and since J = E(p) then it means D is a consonant. It also can only be U, V, or W, and positionally it can only be U or V. Thus it is V (p) and H (c) is W (p). 
+
+This also means that U (p) is in the keyword.
+
+In code, B has trigraph RD, which translates to H_V. Also, B can only be A,B,C,D (p). It makes sense that B (c) = A (p).
+
+Y (c) has 1 frequency, making it likely to be K (p).
+
+Plugging it what is decoded so far, we find certain keywords like:
+
+EUIVERSITY
+
+This implies that E and U (c) are U and N (p) respectively.
+
+STUQENT
+
+Implies that Q (c) = D (p)
+
+ENXINEER
+
+Implies that X (c) = G (p)
+
+Meaning N (c) = F (p)
+
+EXFITED
+
+Implies that F (c) = C (p)
+
+AAGUT
+
+Implies that A (c) = B (p), G (c) = O (p)
+
+Meaning K (c) = P (p)
+
+DECANDS
+
+Implies that C (c) = M (p)
+
+The remaining letters are I,M (c) = I,L (p)
+
+Since I (c) has almost double the frequency of M (c), we can infer that 
+
+I (c) = I (p) and that M (c) = L (p)
+
+
+
 
 
 
