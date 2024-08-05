@@ -10,7 +10,8 @@ The Index of Coincidence is typically used to determine whether a code is monoal
 
 To compute the index of coincidence, we use the following formula:
 
-IMAGE
+<img title="a title" alt="Index of coincidence" src="/images/cryptIC.png">
+
 
 We test for different frequencies of letter length, namely 4, 5, and 6 letter lengths. We are computing the IC for the first letter of the word, and testing the length of the word.
 
@@ -210,7 +211,8 @@ Keyword Transpose Arrays:
 Top letter = code text, bottom letter = plain text
 
 
-IMAGE
+<img title="a title" alt="Arrays" src="/images/cryptArrays.png">
+
 
 
 - Ncol 6 has E as the very last letter, thus it is not possible.
@@ -277,7 +279,8 @@ IMAGE
 
 ## Decoding the Cryptogram
 
-IMAGE
+<img title="a title" alt="Cryptogram Key" src="/images/cryptKey.png">
+
 
 Our solved key now allows us to decode the message. 
 
