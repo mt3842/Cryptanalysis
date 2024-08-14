@@ -1,12 +1,22 @@
 # Cryptanalysis
 
-## Overview
+This project walks through the cryptanalysis of polyalphabetic cipher. There is an encrypted message that we must decode along with the clues about the encryption methods. Using this information, we will attempt to break the cryptogram using various methods.
 
-This project walks through the process of solving a basic cryptanalysis problem. The encrypted cryptogram is provided along with the clue that there are two keywords used to transpose the message. Using this information, we will attempt to break the cryptogram using various methods.
+## Encoding
 
-## Index of Coincidence
+This purpose of this project is to demonstrate and test the knowledge of basic cryptanalysis techniques on a polyalphabetic cipher, so the methods of encoding are known to aid with the direction of the decoding. The plaintext is encoding using monoalphabetic substitution using a keyword (which will be referred to as the first keyword), then is transposed using that keyword with columnar transposition, and finally encoded again using a vignere cipher with another keyword (which will be referred to as the second keyword).
 
-The Index of Coincidence is typically used to determine whether a code is monoalphabetic or polyalphabetic, and if the latter, how many alphabets are used. In this case we will use it to help determine the number of letters in the transposed keywords. 
+## Decoding
+
+The cipher given is:
+
+[INSERT CIPHER]
+
+Our first step is to collapse the cipher into a single-alphabet code. To do this, we must find the second keyword. To find out the length of the second keyword, we use the Index of Coincidence.
+
+### Index of Coincidence
+
+The Index of Coincidence tells us !!!!!!!
 
 To compute the index of coincidence, we use the following formula:
 
@@ -45,7 +55,7 @@ The average letter frequency meets our threshold of 0.07, thus it seems likely t
 
 ## Cracking the Second Keyword
 
-We know that the second keyword is five letters, so we look st the frequency of each of the 5 letters.
+We know that the second keyword is five letters, so we look at the frequency of each of the 5 letters.
 
 A B C D E F G H I J K L M N  O P Q R S T U V W X Y Z		First Letters
 
@@ -299,7 +309,17 @@ With proper spacing:
 IN RESPONSE TO STUDENT DEMANDS THE UNIVERSITY PROVOST AND THE DEAN OF THE COLLEGE OF ENGINEERING AND APPLIED SCIENCES AGREED TO ESTABLISH THE NEW COLLEGE OF COMPUTER AND INFORMATION SCIENCES THE REQUESTS FROM THE INDUSTRIES ON LONG ISLAND FOR SUCH A COLLEGE GAVE THE STONY BROOK ADMINISTRATION NO CHOICE AND STUDENTS ARE VERY EXCITED ABOUT THE PRESTIGE THEIR COMPSCI DEGREES WILL NOW HAVE
 
 
+
 Finished!
+
+
+
+RESOURCES
+
+https://www.geeksforgeeks.org/keyword-cipher/
+https://www.dcode.fr/columnar-transposition-cipher
+https://en.wikipedia.org/wiki/Vigen%C3%A8re_cipher
+
 
 
 
