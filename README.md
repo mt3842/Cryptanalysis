@@ -1,4 +1,4 @@
-# Cryptanalysis
+# Cryptanalysis of Polyalphabetic Cipher
 
 This project walks through the cryptanalysis of polyalphabetic cipher. There is an encrypted message that we must decode along with the clues about the encryption methods. Using this information, we will attempt to break the cryptogram using various methods.
 
