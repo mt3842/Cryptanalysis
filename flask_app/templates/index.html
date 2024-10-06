@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Text Encoder</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #333;
+            color: #fff;
+        }
+        .container {
+            width: 800px;
+            margin: 40px auto;
+            padding: 20px;
+            border: 1px solid #555;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            background-color: #444;
+        }
+
+        h1 {
+            text-align: center; /* Center the title */
+            margin-bottom: 20px; /* Add some space below the title */
+        }
+
+        .description {
+            text-align: center;
+            margin: 10px 0; /* Adjust spacing as needed */
+            font-size: 18px; /* Adjust font size as needed */
+        }
+
+        .keywords {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .keywords input[type="text"] {
+            width: 200px;
+            height: 40px;
+            margin-bottom: 20px;
+            padding: 10px;
+            border: 1px solid #555;
+            border-radius: 5px;
+            background-color: #333;
+            color: #fff;
+        }
+        .input-output {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+        .input-box {
+            width: 300px;
+            height: 200px;
+            padding: 10px;
+            border: 1px solid #555;
+            border-radius: 5px;
+            background-color: #333;
+            color: #fff;
+            margin-bottom: 20px; /* Add margin to create space below the input box */
+        }
+        
+        .buttons {
+        display: flex;
+        flex-direction: column; /* Stack buttons vertically */
+        align-items: center; /* Center buttons horizontally */
+        margin-top: 20px; /* Space above the buttons */
+    }
+    
+    .buttons button {
+        width: 100px; /* Limit button width */
+        height: 50px; /* Adjust button height */
+        padding: 10px; /* Inner padding */
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        margin: 10px 0; /* Increased vertical spacing between buttons */
+        font-size: 16px; /* Adjusted font size */
+        transition: transform 0.2s; /* Smooth transition for hover effect */
+    }
+
+        .buttons button[type="submit"]:hover {
+            transform: scale(1.1);
+        }
+        .encode-button {
+            background-color: #03A9F4;
+            color: #fff;
+        }
+        .decode-button {
+            background-color: #FF0000;
+            color: #fff;
+        }
+        .output-box {
+            width: 300px;
+            height: 200px;
+            padding: 10px;
+            border: 1px solid #555;
+            border-radius: 5px;
+            background-color: #333;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Custom Cipher Encoder / Decoder</h1>
+
+        <p class="description">Use this tool to encode / decode text with a custom cipher! The total cipher consists of a tabular transposition cipher as well as a Vigenere cipher. 
+            For more details, the breakdown is available at 
+            <a href="https://github.com/manfred-t/Cryptanalysis" target="_blank" style="color: #a932f3;">this github repository</a>
+            . Happy ciphering!
+        
+            <br><br>
+
+            To use, please input two keywords as well as the plain text you would like to encode / decode. The first keyword will be used for the tabular transformation encoding / decoding, 
+            and the second keyword will be used for the Vigenere cipher encoding / decoding. It currently only works on letters only.
+        
+        </p>
+
+
+        <div class="keywords">
+            <input type="text" id="firstKeyword" name="firstKeyword" placeholder="First Keyword">
+            <input type="text" id="secondKeyword" name="secondKeyword" placeholder="Second Keyword">
+        </div>
+        <div class="input-output">
+            <textarea class="input-box" id="textToChange" name="textToChange" placeholder="Insert Text Here"></textarea>
+            <div class="buttons">
+                <button type="button" id="encode-button" class="encode-button">Encode</button>
+                <button type="button" id="decode-button" class="decode-button">Decode</button>                
+            </div>
+            <div class="output-box">
+                <p id="output"></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='scripts.js') }}"></script>
+
+</body>
+</html>
