@@ -1,6 +1,6 @@
 # Cryptanalysis of a Polyalphabetic Cipher
 
-Encode and decode your text using this cipher with this [web demonstration](https://tanm2024.pythonanywhere.com/)
+Encode and decode your text using this cipher with this [web demonstration](https://tanm2024.pythonanywhere.com/).
 
 
 This project walks through the cryptanalysis of polyalphabetic cipher. We aim to decode an encrypted message using clues about the encryption methods. Using this information, we will attempt to break the cryptogram using various methods. Many of these processes were automated using Java, which is included within the repository. However, many methods were used by hand and are detailed throughout the project.
